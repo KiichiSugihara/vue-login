@@ -1,13 +1,15 @@
 import AuthService from '../services/auth-service';
 
+// ローカルストレージからuser情報取り出しておく
 const user = JSON.parse(localStorage.getItem('user'));
-// ?
+// Stateの初期化
+// userがあるなら、loggedIn状態:trueとuserを返す
+// userがないなら、loggedIn状態:falseとuser:nullを返す
 const initialState = user
   ? { status: { loggedIn: true }, user }
   : { status: { loggedIn: false }, user: null };
 
 export const auth = {
-  // ?
   namespaced: true,
   state: initialState,
   actions: {
